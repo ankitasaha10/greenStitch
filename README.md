@@ -22,7 +22,9 @@ MySQL, PostgreSQL, or Oracle by modifying the application.properties file.
 GreenStitch uses the following additional dependencies and libraries:
 
 Spring Boot [3.0.1]
-[Other major dependencies or libraries used] 
+[Other major dependencies or libraries used]
+
+
 # for h2 db, spring security, jwt token, jpa, lombok.
 <dependency>
 			<groupId>org.springframework.boot</groupId>
