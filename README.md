@@ -1,7 +1,7 @@
 # greenStitch 
 GreenStitch - Spring Boot Application
 Description
-GreenStitch is a Spring Boot application designed to test spring security and jwt authentication and authorisation. 
+GreenStitch is a Spring Boot application designed to test spring security and to use JWT Json web tokens authentication and authorisation. 
 
 # Installation
 Follow these steps to set up and run the GreenStitch application:
