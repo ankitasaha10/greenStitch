@@ -1,6 +1,7 @@
 package com.example.greenStitch1.controller;
 
 import com.example.greenStitch1.dto.AuthRequest;
+import com.example.greenStitch1.dto.UserInfoDto;
 import com.example.greenStitch1.entity.UserInfo;
 import com.example.greenStitch1.service.JwtService;
 import com.example.greenStitch1.service.UserService;
@@ -28,6 +29,7 @@ public class UserController {
 
 
 
+    // for signup where no authentication and authorisation is required
     @PostMapping("/new")
     public String addNewUser(@RequestBody UserInfo userInfo) {
         return service.addUser(userInfo);
@@ -37,11 +39,18 @@ public class UserController {
 
     @GetMapping("/getInfo")
     @PreAuthorize("hasAuthority('ROLE_USER')")
-    public Optional<UserInfo> getInfoOfUserByName(@RequestParam("name") String name) {
-        return service.getInfoOfUserByName(name);
+    public UserInfoDto getInfoOfUserByName(@RequestParam("name") String name) {
+        try{
+            return service.getInfoOfUserByName(name);
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("User invalid");
+            return new UserInfoDto();
+        }
     }
 
 
+    // for login
     @PostMapping("/authenticate")
     public String authenticateAndGetToken(@RequestBody AuthRequest authRequest) {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
