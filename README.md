@@ -1,4 +1,4 @@
-# greenStitch
+# greenStitch 
 GreenStitch - Spring Boot Application
 Description
 GreenStitch is a Spring Boot application designed to test spring security and jwt authentication and authorisation. 
